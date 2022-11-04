@@ -115,13 +115,13 @@
                 <groupId>org.easyb</groupId>
                 <artifactId>maven-easyb-plugin</artifactId>
                 <version>1.4</version>
-                <executions>
-                    <execution>
+                <exclusions>
+                    <exclusion>
                         <goals>
                             <goal>test</goal>
                         </goals>
-                    </execution>
-                </executions>
+                    </exclusion>
+                </exclusions>
                 <configuration>
                     <storyType>html</storyType>
                     <storyReport>target/easyb/easyb.html</storyReport>
@@ -151,13 +151,13 @@
                     <groupId>org.easyb</groupId>
                     <artifactId>maven-easyb-plugin</artifactId>
                     <version>${easyb.version}</version>
-                    <executions>
-                        <execution>
+                    <exclusions>
+                        <exclusion>
                             <goals>
                                 <goal>test</goal>
                             </goals>
-                        </execution>
-                    </executions>
+                        </exclusion>
+                    </exclusions>
                     <configuration>
                         <storyType>html</storyType>                         l
                         <storyReport>${basedir}/target/easyb/easyb-report.html
