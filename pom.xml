@@ -180,12 +180,8 @@
             <dependency>
 	    <version>${easyb.version}</version>
             <scope>test</scope>   
-		<exclusions>
-		    <exclusion> 
-                        <groupId>org.easyb</groupId>
-                        <artifactId>easyb-core</artifactId>
-                    <exclusion>
-		<exclusions>	
+	    <groupId>org.easyb</groupId>
+            <artifactId>easyb-core</artifactId>
             </dependency>
         </dependencies>
     </dependencyManagement>
