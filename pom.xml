@@ -182,8 +182,8 @@
             <scope>test</scope>   
 		<exclusions>
 		    <exclusion> 
-                    <groupId>org.easyb</groupId>
-                    <artifactId>easyb-core</artifactId>
+                        <groupId>org.easyb</groupId>
+                        <artifactId>easyb-core</artifactId>
                     <exclusion>
 		<exclusions>	
             </dependency>
