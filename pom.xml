@@ -115,13 +115,13 @@
                 <groupId>org.easyb</groupId>
                 <artifactId>maven-easyb-plugin</artifactId>
                 <version>1.4</version>
-                <exclusions>
-                    <exclusion>
+                <executions>
+                    <execution>
                         <goals>
                             <goal>test</goal>
                         </goals>
-                    </exclusion>
-                </exclusions>
+                    </execution>
+                </executions>
                 <configuration>
                     <storyType>html</storyType>
                     <storyReport>target/easyb/easyb.html</storyReport>
@@ -151,13 +151,13 @@
                     <groupId>org.easyb</groupId>
                     <artifactId>maven-easyb-plugin</artifactId>
                     <version>${easyb.version}</version>
-                    <exclusions>
-                        <exclusion>
+                    <executions>
+                        <execution>
                             <goals>
                                 <goal>test</goal>
                             </goals>
-                        </exclusion>
-                    </exclusions>
+                        </execution>
+                    </executions>
                     <configuration>
                         <storyType>html</storyType>                         l
                         <storyReport>${basedir}/target/easyb/easyb-report.html
@@ -178,10 +178,14 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.easyb</groupId>
-                <artifactId>easyb-core</artifactId>
-                <version>${easyb.version}</version>
-                <scope>test</scope>
+		<exclusions>
+		    <exclusion> 
+                    <groupId>org.easyb</groupId>
+                    <artifactId>easyb-core</artifactId>
+                    <version>${easyb.version}</version>
+                    <scope>test</scope>
+	            <exclusion>
+		<exclusions>	
             </dependency>
         </dependencies>
     </dependencyManagement>
