@@ -175,7 +175,7 @@
             </extension>
         </extensions>
     </build>
-    <!--dependencyManagement>
+    <dependencyManagement>
         <dependencies>
             <dependency>
 	    <version>${easyb.version}</version>
@@ -188,7 +188,7 @@
 		<exclusions>	
             </dependency>
         </dependencies>
-    </dependencyManagement-->
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
