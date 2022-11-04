@@ -178,13 +178,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+	    <version>${easyb.version}</version>
+            <scope>test</scope>   
 		<exclusions>
 		    <exclusion> 
                     <groupId>org.easyb</groupId>
                     <artifactId>easyb-core</artifactId>
-                    <version>${easyb.version}</version>
-                    <scope>test</scope>
-	            <exclusion>
+                    <exclusion>
 		<exclusions>	
             </dependency>
         </dependencies>
