@@ -63,7 +63,7 @@ stages {
       steps {
         sh label: '', script: '''sudo docker build -t gameoflife-image:$BUILD_NUMBER .
                                  sudo docker tag gameoflife-image:$BUILD_NUMBER docker.io/raknas000/gameoflife-image:$BUILD_NUMBER
-                                 sudo docker push docker.io/raknas000/gameoflife-image:$BUILD_NUMBER'''
+                                 docker push docker.io/raknas000/gameoflife-image:$BUILD_NUMBER'''
                                  
       }
  }
@@ -75,21 +75,21 @@ stages {
  }
   stage('Apply Kubernetes files') {
             steps {
-             sh label: '', script: '''scp *.yml jenkins@18.117.173.62:/home/jenkins
-                                  ssh jenkins@18.117.173.62 kubectl apply -f deploy-kube.yml
-                                  ssh jenkins@18.117.173.62 kubectl apply -f service.yml'''
+             sh label: '', script: '''scp *.yml jenkins@172.31.33.117:/home/jenkins
+                                  ssh jenkins@172.31.33.117 kubectl apply -f deploy-kube.yml
+                                  ssh jenkins@172.31.33.117 kubectl apply -f service.yml'''
            
         }
      }
     stage('Validation and Rollback') {
             steps {
              sh label: '', script: '''sleep 30
-                                        status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://18.117.173.62:30005/gameoflifes/)
+                                        status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://172.31.33.117:30005/gameoflifes/)
                                         if [[ "$status_code" -ne 200 ]] ; then
                                             echo "Deployment has some problem - $status_code"
-                                            ssh jenkins@18.117.173.62 kubectl rollout undo deployment/sample-deploy
+                                            ssh jenkins@172.31.33.117 kubectl rollout undo deployment/sample-deploy
                                         else
-                                            ssh jenkins@18.117.173.62 kubectl rollout  status deployment/sample-deploy
+                                            ssh jenkins@172.31.33.117 kubectl rollout  status deployment/sample-deploy
                                         fi
                                     '''
            
